@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title> techvarsity </title>
+
+    <style>
+
+    
+
+    .btn{
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .btn:hover{
+
+    background: red;
+    color: blueviolet ;        
+
+    }
+
+    .mybody{
+
+        min-height: 100vh; 
+        align-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    input{
+        
+        text-indent: 10px;
+        font-size: 18px;
+        width: 100%;
+        padding:10px ;
+        margin: 8px;
+        display: inline-block;
+        border: 1px solid gray;
+        border-radius: 10px;
+        box-sizing: border-box;
+      
+    }
+
+    .reset:hover{
+
+        color: aqua;
+        background: yellowgreen;
+    }
+    
+    
+    
+
+    </style>
+
+</head>
+
+<body>
+
+   <div class="mybody">
+
+       <h3 style="text-align: center;">BMI Calculator by Abideen Muhammed </h3>
+
+       <div style="display: grid;">
+
+            <label for="name">Name</label>
+
+           <input type="text" placeholder="your name" id="name">
+
+           <label for="height">height in m</label>
+           <input type="number" placeholder="put height"  id="height" >
+
+           <label for="weight">your weight in KG</label>
+           <input type="number" placeholder="your weight" id="weight">
+
+          <div style="display: flex;">
+                <button onclick="calBmi()" class="btn"> 
+
+                        GET BMI VALUE
+                    </button><input type="reset" onclick= "reset()" value="RESET"   class="reset">
+          </div>
+      
+       </div> 
+    
+       
+        <h1 id="displayResult"></h1>
+
+    </div> 
+
+    
+
+<script>
+
+
+var result = document.getElementById('displayResult');
+
+function reset(){
+
+
+name.value = " ";
+height.value = " ";
+weight.value = " ";
+result.innerHTML = " ";
+
+}
+
+function calBmi (){
+
+var  name = document.getElementById('name');
+var  height = document.getElementById('height');
+var  weight = document.getElementById('weight');
+
+
+    if (name.value== ""||height.value ==""||weight.value == "") { 
+        alert('one of the field is empty')
+
+} else if (name.value != " " && height.value !="" && weight.value != "") {
+    
+    var mbiCal1 = weight.value/Math.pow(height.value,2);
+
+     var bmiCal =  Math.ceil(mbiCal1)
+     
+          if (bmiCal<25) {
+
+            result.innerHTML = "BMI result is" + "  " + bmiCal + " , " + name.value + " " +  "<span style = 'color:green'> is NOT over-weight </span>";
+}
+
+            else{
+                 result.innerHTML = "BMI result is" + " " + bmiCal + " , " + name.value + " " + "<span style = 'color: red'>  is over-weight </span>";
+}   
+  
+}
+
+
+    
+    //console.log(name.value);
+    
+
+
+}
+
+  
+
+ 
+
+
+
+
+</script>
+
+
+</body>
+</html> 
